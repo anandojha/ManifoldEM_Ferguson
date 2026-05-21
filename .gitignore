@@ -9,3 +9,9 @@
 /.git-blame-ignore-revs
 /node_modules
 /venv*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store

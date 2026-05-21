@@ -5,7 +5,11 @@ from scipy.sparse import csr_matrix, csc_matrix
 from scipy.sparse.linalg import eigsh, ArpackNoConvergence
 
 from ManifoldEM.params import params
-from ManifoldEM.core import fergusonE
+import os
+if os.environ.get("MANIFOLDEM_FERGUSON_BACKEND") == "uwm":
+    from ManifoldEM._ferguson_uwm import fergusonE_uwm as fergusonE
+else:
+    from ManifoldEM.core import fergusonE
 '''
 Copyright (c) UWM, Ali Dashti 2016 (original matlab version)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
